@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>London Accident Data Analysis</title>
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
 
@@ -14,8 +15,12 @@
     <select id="dropdown" onchange="optionChange(this)"></select>
   
   <!-- html element to render chart/graph -->
-    <canvas id="myChart"></canvas>
-
+    <div class="bar">
+        <canvas id="myChart"></canvas>
+    </div>  
+    <div class="radar">
+        <canvas id="radarChart"></canvas>
+    </div>
  <!-- references js file -->
     <script src="js/main.js"></script>
 </body>

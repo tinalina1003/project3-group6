@@ -8,14 +8,20 @@ var boroughLabels;
 d3.json(url).then(loaddata);
 
 function loaddata(data) {
+    createBarChart(data);
+    createRadarChart(data);
+}
+
+function createBarChart(data) {
     console.log("data", data)
     
-    chrt = document.getElementById("myChart");
+    //Get unique borough and severities list
     boroughLabels = [...new Set(data.map(t => t.borough))];
     severities = [...new Set(data.map(t => t.severity))];
     console.log(boroughLabels);
     console.log(severities);
 
+    // Populate datasets for borough and severities
     for (let boroughIndex = 0; boroughIndex < boroughLabels.length; boroughIndex++) {
         let accidents = data.filter(t => t.borough == boroughLabels[boroughIndex]).length
         borough_accident_dataset.push({
@@ -36,7 +42,7 @@ function loaddata(data) {
     console.log(accident_dataset)
     console.log(borough_accident_dataset)
 
-    var labels = ["January", "February", "March", "April", "May", "June", "July"];
+    chrt = document.getElementById("myChart");
 
     var data = {
         labels: boroughLabels,
@@ -81,6 +87,54 @@ function loaddata(data) {
         optionElm.text = severities[severityIndex];
         dropdown.appendChild(optionElm) 
     }
+}
+
+function createRadarChart(dataset) {
+    var casualtiesDataset = createCasualtiesDataset(dataset);
+    console.log(casualtiesDataset);
+    
+    var casualtiesLabels = [...new Set(casualtiesDataset.map(t => t.mode))];
+    var finalizedCasualtiesData = [];
+
+    for (let casualtiesIndex = 0; casualtiesIndex < casualtiesLabels.length; casualtiesIndex++) {
+        let casualties = casualtiesDataset.filter(t => t.mode == casualtiesLabels[casualtiesIndex]).length
+        finalizedCasualtiesData.push(casualties);
+    }
+
+    var radarChartElm = document.getElementById("radarChart");
+
+    const data = {
+        labels: casualtiesLabels,
+        datasets: [{
+          label: 'Casualties',
+          data: finalizedCasualtiesData,
+          fill: true,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgb(255, 99, 132)',
+          pointBackgroundColor: 'rgb(255, 99, 132)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgb(255, 99, 132)'
+        }]
+      };
+
+      var radarChart = new Chart(radarChartElm, {
+        type: 'radar',
+        data: data,
+        options: {
+          elements: {
+            line: {
+              borderWidth: 3
+            }
+          }
+        },
+      });
+}
+
+function createCasualtiesDataset(dataset) {
+    var casualties = [];
+    dataset.forEach(t => casualties = casualties.concat(t.casualties))
+    return casualties;
 }
 
 function optionChange(dropdown) {
