@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>London Accident Data Analysis</title>
+    <title>London Accident Data 2019</title>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
-<header>
-    <h1>London Accident Data 2019</h1>
-  </header>
-
 <body>
-
+    <header class="header">
+        <div class="header-bg"></div>
+        <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
+      </header>
     <!-- import chart.js to html -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -32,22 +34,22 @@
             background-color: #333;
         }
 
-li {
-  float: left;
-}
+        li {
+            float: left;
+        }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
+    /* Change the link color to #111 (black) on hover */ */
+        li a:hover {
+            background-color: #111;
+        }
     </style>
     
     <nav>
@@ -58,22 +60,24 @@ li a:hover {
             <li><a href="/">View 3</a></li>
         </ul>
     </nav><br>
-  
-    <label>Severity</label><br/>
-    <select id="dropdown" onchange="optionChange(this)"></select>
-  
-  <!-- html element to render chart/graph -->
-    <div class="bar">
-        <canvas id="myChart"></canvas>
-    </div>  
-    <br>
-    <br>
-    <div class="radar">
-        <canvas id="radarChart"></canvas>
+    <div>
+        <label>Severity</label>
+        <select id="dropdown" onchange="optionChange(this)"></select>
+    
+    <!-- html element to render chart/graph -->
+        <div class="bar">
+            <canvas id="myChart"></canvas>
+        </div>  
+        <br>
+        <br>
+        <div class="radar">
+            <canvas id="radarChart"></canvas>
+        </div>
     </div>
  <!-- references js file -->
     <script src="js/main.js"></script>
 </body>
+
 
 
 

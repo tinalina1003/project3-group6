@@ -1,3 +1,16 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: rgba(228,228,227, 1);
+}
+
+label {
+    font-size: 15px;
+}
+
 .bar {
     width: 1200px;
 }
@@ -5,3 +18,26 @@
 .radar {
     width: 800px;
 }
+
+.header {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 35px;
+}
+
+.header-bg {
+    background-image: url("../IMG/Flag.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    z-index: -999;
+}
+
