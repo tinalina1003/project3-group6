@@ -4,6 +4,11 @@
     <title>London Accident Data Analysis</title>
     <link rel="stylesheet" href="css/main.css"/>
 </head>
+
+<header>
+    <h1>London Accident Data 2019</h1>
+  </header>
+
 <body>
 
     <!-- import chart.js to html -->
@@ -11,13 +16,58 @@
 
     <!-- import d3 -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    
 
+
+    <!-- navigation bar -->
+    <style>
+        
+        h1 {text-align: center;}
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+    </style>
+    
+    <nav>
+        <ul>
+            <li><a href="/">London Map</a></li>
+            <li><a href="/">View 1</a></li>
+            <li><a href="/">View 2</a></li>
+            <li><a href="/">View 3</a></li>
+        </ul>
+    </nav><br>
+  
+    <label>Severity</label><br/>
     <select id="dropdown" onchange="optionChange(this)"></select>
   
   <!-- html element to render chart/graph -->
     <div class="bar">
         <canvas id="myChart"></canvas>
     </div>  
+    <br>
+    <br>
     <div class="radar">
         <canvas id="radarChart"></canvas>
     </div>

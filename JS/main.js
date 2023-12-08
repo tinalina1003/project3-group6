@@ -16,7 +16,7 @@ function createBarChart(data) {
     console.log("data", data)
     
     //Get unique borough and severities list
-    boroughLabels = [...new Set(data.map(t => t.borough))];
+    boroughLabels = [...new Set(data.map(t => t.borough))].sort();
     severities = [...new Set(data.map(t => t.severity))];
     console.log(boroughLabels);
     console.log(severities);
@@ -27,7 +27,8 @@ function createBarChart(data) {
         borough_accident_dataset.push({
             "borough": boroughLabels[boroughIndex],
             "accidents": accidents
-        });
+        }
+        );
 
         for (let severityIndex = 0; severityIndex < severities.length; severityIndex++) {
             let accidents = data.filter(t => t.borough == boroughLabels[boroughIndex] && t.severity == severities[severityIndex]).length
@@ -73,13 +74,47 @@ function createBarChart(data) {
 
     bar = new Chart(chrt, {
         type: 'bar',
-        data: data
+        data: data,
+        options: {
+          plugins: {
+              title: {
+                  display: true,
+                  text: 'London Accident Data 2019',
+                  font: {
+                    size: 15,
+                    weight: 'bold'
+                }
+              }
+            },
+            scales: {
+              y: {
+                title: {
+                  display: true,
+                  text: 'Total # of Accidents',
+                  font: {
+                    size: 15,
+                    weight: 'bold'
+                }
+              }
+            },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Boroughs',
+                  font: {
+                    size: 15,
+                    weight: 'bold'
+                }
+                }
+              }
+          }
+        }
     });
 
     var dropdown = document.getElementById("dropdown");
     console.log(dropdown)
     var optionElm = document.createElement("option")
-    optionElm.text = 'All';
+    optionElm.text = '-';
     dropdown.appendChild(optionElm) 
 
     for (let severityIndex = 0; severityIndex < severities.length; severityIndex++) {
@@ -122,14 +157,24 @@ function createRadarChart(dataset) {
         type: 'radar',
         data: data,
         options: {
-          elements: {
-            line: {
-              borderWidth: 3
-            }
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'London Accident Casualties 2019',
+                    font: {
+                      size: 15,
+                      weight: 'bold'
+                    },
+                    elements: {
+                      line: {
+                        borderWidth: 3
+                      }
+                    }
+                  }
+                }
+              },
+            });
           }
-        },
-      });
-}
 
 function createCasualtiesDataset(dataset) {
     var casualties = [];
@@ -141,7 +186,7 @@ function optionChange(dropdown) {
     console.log('option changed called', dropdown.value);
 
     let data = [];
-    if (dropdown.value === 'All') {
+    if (dropdown.value === '-') {
         data = borough_accident_dataset.map(t => t.accidents);
     } else {
         let severity_dataset = accident_dataset.filter(t => t.severity === dropdown.value);
@@ -156,4 +201,3 @@ function optionChange(dropdown) {
     bar.update();
 
 }
-     
