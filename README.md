@@ -41,3 +41,7 @@ bromley lowest accidents/sq.km
 
 
 <h1> London Accident Data by Borough</h1>
+![AccidentByBorough2](https://github.com/tinalina1003/project3-group6/assets/127992819/6cc6d422-6469-49ec-8525-7a9e737753cc)
+![AccidentByBorough1](https://github.com/tinalina1003/project3-group6/assets/127992819/fc84405f-924d-4454-95f8-1c483644a19e)
+
+
