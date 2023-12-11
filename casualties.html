@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accident Statistics</title>
+    <!-- Include D3.js and Plotly libraries -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" type="text/css" href="casualties.css">
+</head>
+<body>
+    <!-- Dropdown for selecting a month -->
+    <select id="monthDropdown"></select>
+    
+    <div class="chart-container">
+        <!-- Div for displaying the pie chart -->
+        <div id="vehicleTypePieChart" style="width: 600px; height: 400px;"></div>
+        
+        <!-- Div for displaying total accidents and vehicle type information -->
+        <div class="info-container">
+            <!-- Div for displaying total accidents -->
+            <div id="totalAccidents"></div>
+
+            <!-- Div for displaying vehicle type information -->
+            <div id="accidentInfo"></div>
+        </div>
+    </div>
+
+    <!-- Link to your custom JavaScript file -->
+    <script src="casualties.js"></script>
+</body>
+</html>
+
+
+
+
+
+
