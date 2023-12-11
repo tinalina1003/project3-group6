@@ -118,7 +118,11 @@
 "Population":209666,
 "Square_km":43.8,
 "Population_per_square_kilometer":4781.8},
+<<<<<<< HEAD
+{"Borough Name": "Tower Hamlets",
+=======
 {"Borough_Name": "Tower Hamlets",
+>>>>>>> main
 "Population":323696,
 "Square_km":19.8,
 "Population_per_square_kilometer":16363.8},
