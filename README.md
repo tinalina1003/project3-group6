@@ -6,6 +6,10 @@ Camille Velarde<p>
 Christina Leung<p>
 Gurpreet Doal<p>
 
+<h1> Methodology </h1>
+
+![architecture](https://github.com/tinalina1003/project3-group6/assets/127992819/0f7bada7-d2b7-40c2-b71e-7a3c3c7a2bfb)
+
 <h1> Data </h1>
 
 APIs Used: <hr>
