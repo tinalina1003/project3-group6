@@ -2,11 +2,6 @@
 
 const url ="http://127.0.0.1:5000/api/v1.0/accidents";
 
-//promise panding 
-const dataPromise =d3.json(url);
-console.log("Data Promise:",dataPromise);
-
-
 //Getting our GeoJSON data
 d3.json(url).then(function(data){
     console.log(data);
@@ -55,6 +50,7 @@ function processAccidentData(data){
     
        //log the monthly Accident data
        console.log("  vehicleTypeCounts:", vehicleTypeCounts);
+       displayAccidentData('2019-1');
 }
     // mapping month names
      const monthDropdown = document.getElementById('monthDropdown');
@@ -111,8 +107,8 @@ function displayAccidentData(monthKey) {
 
         const layout = {
             title: `Vehicle Types Involved in Accidents - ${readableMonth}`,
-            height: 600,
-            width: 800
+            paper_bgcolor: 'rgba(0, 0, 0, 0)',
+            plot_bgcolor: 'rgba(0, 0, 0, 0)'
         };
 
         Plotly.newPlot('vehicleTypePieChart', data, layout);

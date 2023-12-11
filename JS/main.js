@@ -1,4 +1,4 @@
-const url = 'http://localhost:5000/api/v1.0/accidents'
+const accidentsUrl = 'http://localhost:5000/api/v1.0/accidents'
 var accident_dataset = [];
 var severities = [];
 var borough_accident_dataset = [];
@@ -7,7 +7,7 @@ var boroughLabels;
 var severityDropdownSelected = '-';
 var sortingDropdownSelected = 'A-Z';
 
-d3.json(url).then(loaddata);
+d3.json(accidentsUrl).then(loaddata);
 
 function loaddata(data) {
     createBarChart(data);

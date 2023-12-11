@@ -65,9 +65,10 @@
 <body>
     <!-- Our JavaScript file -->
     <script type="text/javascript" src="London_Accident_Map.js"></script>
-
     <!-- Leaflet heatmap plugin-->
     <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
+    <!-- Plotly library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <header class="header">
         <div class="header-bg"></div>
@@ -100,13 +101,32 @@
                 <canvas id="myChart"></canvas>
             </div>  
         </div>
-        <div class="pie-test"></div>
+        <div class="pieContainer">
+          <!-- Dropdown for selecting a month -->
+          <label>Month: </label>
+          <select id="monthDropdown"></select>
+          
+          <div class="chart-container" style="display: flex; justify-content: center;">
+              <!-- Div for displaying the pie chart -->
+              <div id="vehicleTypePieChart" style="width: 600px; height: 400px;"></div>
+              
+              <!-- Div for displaying total accidents and vehicle type information -->
+              <div class="info-container" style="display: none;">
+                  <!-- Div for displaying total accidents -->
+                  <div id="totalAccidents"></div>
+
+                  <!-- Div for displaying vehicle type information -->
+                  <div id="accidentInfo"></div>
+              </div>
+          </div>
+        </div>
     </div>
 
     <!-- references js file -->
     <!-- import d3 -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="js/main.js"></script>    
+    <script src="js/main.js"></script>  
+    <script src="casualties.js"></script>  
     <!-- import chart.js to html -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

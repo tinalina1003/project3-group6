@@ -12,7 +12,8 @@ label {
 }
 
 .bar {
-    width: 95%;
+    width: 90%;
+    height: 100%;
 }
 
 .radar {
@@ -89,7 +90,7 @@ label {
     max-height: 80vh;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .map-test {
