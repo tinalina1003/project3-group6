@@ -8,7 +8,7 @@ Gurpreet Doal<p>
 
 <h1> Goal </h1>
 
-Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential tp contribute to the well being of community drove out team to choose this topic.
+Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential to contribute to the well being of community drove out team to choose this topic.
 
 
 <h1> Methodology </h1>
