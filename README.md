@@ -7,6 +7,8 @@ Angad Dhillon<p>
 Camille Velarde<p>
 Christina Leung<p>
 Gurpreet Doal<p>
+  
+![map](https://github.com/tinalina1003/project3-group6/assets/127992819/91c538df-ab19-4d37-849e-a5a55661c498)
 
 -map
 > 3 layers: street, topo, satellite
