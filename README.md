@@ -6,9 +6,21 @@ Camille Velarde<p>
 Christina Leung<p>
 Gurpreet Doal<p>
 
+<h1> Goal </h1>
+
+Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential tp contribute to the well being of community drove out team to choose this topic.
+
+
 <h1> Methodology </h1>
 
 ![architecture](https://github.com/tinalina1003/project3-group6/assets/127992819/0f7bada7-d2b7-40c2-b71e-7a3c3c7a2bfb)
+
+Python (to clean and export data)
+MongoDB (to store our data)
+Flask (to create framework for API’s)
+JavaScript & Chart.js (to visualize data)
+HTML & CSS ( as basic skeleton of webpage)
+
 
 <h1> Data </h1>
 
