@@ -1,12 +1,27 @@
 # project3-group6
 Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey
 
-
 <h3>group members</h3><p>
 Angad Dhillon<p>
 Camille Velarde<p>
 Christina Leung<p>
 Gurpreet Doal<p>
+
+<h1> Data </h1>
+
+APIs Used: <hr>
+London 2019 Accidents:
+https://api-portal.tfl.gov.uk/api-details#api=AccidentStats&operation=AccidentStats_Get
+
+London Boroughs:
+https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london?resource=9ba8c833-6370-4b11-abdc-314aa020d5e0
+
+Borough Population and Area:
+https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-borough
+
+
+
+
   
 ![map](https://github.com/tinalina1003/project3-group6/assets/127992819/91c538df-ab19-4d37-849e-a5a55661c498)
 
