@@ -6,9 +6,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- MomentJS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <!-- Leaflet JavaScript code -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+    <!-- Marker cluster JavaScript code -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+
+    <!-- Marker cluster CSS -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+
+    <!-- Icons -->
+    <script src="static/js/leaflet.extra-markers.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
+    <style>
+
+        #map-id {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          margin: 10px;
+        
+        }
+          .popupCustom .leaflet-popup-tip,
+          .popupCustom .leaflet-popup-content-wrapper {
+            background: #e0e0e0;
+            color: #234c5e;
+          }
+        
+          .map-container {
+            width: 100%;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            padding-top: 20px;
+            grid-row: 1/span 2;
+          }
+        </style>
+
 </head>
 
 <body>
+    <!-- Our JavaScript file -->
+    <script type="text/javascript" src="London_Accident_Map.js"></script>
+
+    <!-- Leaflet heatmap plugin-->
+    <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
+
     <header class="header">
         <div class="header-bg"></div>
         <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
@@ -21,25 +81,26 @@
             <li><a href="./casualties.html">Casualties</a></li>
         </ul>
     </nav><br>
-    <div class="mainContainer">
-        <div class="dropdownContainer"><label>Severity: </label>
-            <select id="severityDropdown" onchange="optionChange(this)"></select>
-            <label>Sort: </label>
-            <select id="sortingDropdown" onchange="sortingOptionChange(this)">
-                <option>A-Z</option>
-                <option>Ascending</option>
-                <option>Descending</option>
-            </select>
+    <div class="gridContainer">
+        <div class="map-container">
+            <div id="map-id"></div>
+          </div>
+        <div class="barContainer">
+            <div class="dropdownContainer"><label>Severity: </label>
+                <select id="severityDropdown" onchange="optionChange(this)"></select>
+                <label>Sort: </label>
+                <select id="sortingDropdown" onchange="sortingOptionChange(this)">
+                    <option>A-Z</option>
+                    <option>Ascending</option>
+                    <option>Descending</option>
+                </select>
+            </div>
+            <!-- html element to render chart/graph -->
+            <div class="bar">
+                <canvas id="myChart"></canvas>
+            </div>  
         </div>
-    <!-- html element to render chart/graph -->
-        <div class="bar">
-            <canvas id="myChart"></canvas>
-        </div>  
-        <br>
-        <br>
-        <div class="radar">
-            <canvas id="radarChart"></canvas>
-        </div>
+        <div class="pie-test"></div>
     </div>
 
     <!-- references js file -->
@@ -48,6 +109,7 @@
     <script src="js/main.js"></script>    
     <!-- import chart.js to html -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 
