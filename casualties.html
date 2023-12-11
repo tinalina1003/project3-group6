@@ -7,22 +7,37 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <!-- Link to your external CSS file -->
     <link rel="stylesheet" type="text/css" href="casualties.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <!-- Dropdown for selecting a month -->
-    <select id="monthDropdown"></select>
-    
-    <div class="chart-container">
-        <!-- Div for displaying the pie chart -->
-        <div id="vehicleTypePieChart" style="width: 600px; height: 400px;"></div>
+    <header class="header">
+        <div class="header-bg"></div>
+        <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
+      </header>
+      <nav class="navigation">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./map.html">Map</a></li>
+            <li><a href="./total_accidents.html">Total Accidents</a></li>
+            <li><a href="./casualties.html">Casualties</a></li>
+        </ul>
+      </nav><br>
+    <div class="content-container">
+        <!-- Dropdown for selecting a month -->
+        <select id="monthDropdown"></select>
         
-        <!-- Div for displaying total accidents and vehicle type information -->
-        <div class="info-container">
-            <!-- Div for displaying total accidents -->
-            <div id="totalAccidents"></div>
+        <div class="chart-container">
+            <!-- Div for displaying the pie chart -->
+            <div id="vehicleTypePieChart" style="width: 600px; height: 400px;"></div>
+            
+            <!-- Div for displaying total accidents and vehicle type information -->
+            <div class="info-container">
+                <!-- Div for displaying total accidents -->
+                <div id="totalAccidents"></div>
 
-            <!-- Div for displaying vehicle type information -->
-            <div id="accidentInfo"></div>
+                <!-- Div for displaying vehicle type information -->
+                <div id="accidentInfo"></div>
+            </div>
         </div>
     </div>
 

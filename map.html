@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Accidents in London, GB in 2019</title>
-
+  <link rel="stylesheet" href="css/main.css"/>
 <!-- D3 library -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -41,6 +41,7 @@ crossorigin=""></script>
 <style>
 
 #map-id {
+  width: 100%;
   height: 100%;
   padding: 10px;
   margin: 10px;
@@ -50,6 +51,14 @@ crossorigin=""></script>
   .popupCustom .leaflet-popup-content-wrapper {
     background: #e0e0e0;
     color: #234c5e;
+  }
+
+  .container {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
   }
 </style>
 
@@ -63,11 +72,20 @@ crossorigin=""></script>
 
 <!-- Leaflet heatmap plugin-->
 <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
-
+<header class="header">
+  <div class="header-bg"></div>
+  <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
+</header>
+<nav class="navigation">
+  <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./map.html">Map</a></li>
+      <li><a href="./total_accidents.html">Total Accidents</a></li>
+      <li><a href="./casualties.html">Casualties</a></li>
+  </ul>
+</nav><br>
 <div class="container">
-  <h3> MAP TEST</h3>
   <div id="map-id"></div>
-  
 </div>
 
 

@@ -1,17 +1,3 @@
-/* General body styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Fallback color if the image is not loaded */
-    background-image: url('background .webp'); /* Path to your background image */
-    background-size: cover; /* Cover the entire page */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-attachment: fixed; /* Fixed background (doesn't scroll with the page) */
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-}
-
 /* Styling the dropdown menu */
 #monthDropdown {
     width: 200px;
@@ -20,6 +6,7 @@ body {
     border: 3px solid #8b3e3e;
     border-radius: 10px;
     font-size: 16px;
+    align-self: start;
 }
 
 /* Flex container for pie chart and accident info */
@@ -27,8 +14,13 @@ body {
     display: flex;
     justify-content: space-between; 
     align-items: flex-start;
+<<<<<<< HEAD
     gap: 50px; /* Space between items */
  
+=======
+    gap: 3rem; /* Space between items */
+   
+>>>>>>> 36c2dbe898339ef0f59636a0f8f531bcc95b49c8
     
 }
 
@@ -69,6 +61,7 @@ body {
 
 /* Styling for info container */
 .info-container {
+<<<<<<< HEAD
     width: 40%; /* Adjusted width */
     max-width: 400px; /* Maximum width */
     flex: 1; /* Adjusts the flexibility */
@@ -104,5 +97,15 @@ body {
 /* Ensure table is not hidden */
 #accidentInfo table {
     display: table;
+=======
+>>>>>>> 36c2dbe898339ef0f59636a0f8f531bcc95b49c8
 }
 
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
