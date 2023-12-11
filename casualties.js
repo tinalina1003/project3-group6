@@ -2,11 +2,6 @@
 
 const url ="http://127.0.0.1:5000/api/v1.0/accidents";
 
-//promise panding 
-const dataPromise =d3.json(url);
-console.log("Data Promise:",dataPromise);
-
-
 //Getting our GeoJSON data
 d3.json(url).then(function(data){
     console.log(data);
@@ -55,6 +50,7 @@ function processAccidentData(data){
     
        //log the monthly Accident data
        console.log("  vehicleTypeCounts:", vehicleTypeCounts);
+       displayAccidentData('2019-1');
 }
     // mapping month names
      const monthDropdown = document.getElementById('monthDropdown');
@@ -68,10 +64,10 @@ function processAccidentData(data){
              monthDropdown.appendChild(option);
     });
 
-     // Add event listener to the dropdown
-     monthDropdown.addEventListener('change', function() {
-        const selectedMonth = this.value;
-        displayAccidentData(selectedMonth);
+    // Add event listener to the dropdown
+    monthDropdown.addEventListener('change', function() {
+    const selectedMonth = this.value;
+    displayAccidentData(selectedMonth);
     });
    
 function formatMonthYear(monthYear) {
@@ -91,11 +87,13 @@ function displayAccidentData(monthKey) {
 
     // Process and display vehicle types and counts
     const vehicleTypes = vehicleTypeCounts[monthKey];
-    let vehicleTypesText = 'No data';
+    let vehicleTypesTable =  '<table><tr><th>Vehicle Type</th><th>Number of Vehicles</th></tr>';
+
     if (vehicleTypes) {
-        vehicleTypesText = 'Vehicle Types: no of vehicles <br>' + Object.entries(vehicleTypes)
-            .map(([type, count]) => `${type}:  ${count}`)
-            .join('<br>');
+        for (const [type, count] of Object.entries(vehicleTypes)) {
+            vehicleTypesTable += `<tr><td>${type}</td><td>${count}</td></tr>`;
+        }
+        vehicleTypesTable += '</table>';
 
 
     
@@ -111,8 +109,8 @@ function displayAccidentData(monthKey) {
 
         const layout = {
             title: `Vehicle Types Involved in Accidents - ${readableMonth}`,
-            height: 600,
-            width: 800
+            paper_bgcolor: 'rgba(0, 0, 0, 0)',
+            plot_bgcolor: 'rgba(0, 0, 0, 0)'
         };
 
         Plotly.newPlot('vehicleTypePieChart', data, layout);
@@ -122,8 +120,9 @@ function displayAccidentData(monthKey) {
 
       // Display the information
       const infoDiv = document.getElementById('accidentInfo');
-      infoDiv.innerHTML = vehicleTypesText;
+      infoDiv.innerHTML = vehicleTypesTable ;
   }
+
 
  
 
