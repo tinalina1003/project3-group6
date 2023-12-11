@@ -198,6 +198,9 @@ d3.json(boroughUrl).then(function(data){
         // json data
         let accidentUrl = 'http://127.0.0.1:5000/api/v1.0/accidents';
 
+        console.log(populationData)
+        console.log(data)
+
 
         d3.json(accidentUrl).then(function(accidentData){
 
@@ -221,8 +224,10 @@ d3.json(boroughUrl).then(function(data){
 
                         // change westminster if needed
                         layer.bindPopup("<h2>" + changeWestminster(feature) + `</h2><hr> \
-                        <h5>Total Accidents: ${accidentCount(accidentData,feature.properties.name)}</h5><p>
-                        <h5>Population: ${populationExtract(populationData, feature.properties.name)}</h5>`).openPopup(); // opens up the popup on mouseover
+                        <h5>Total Accidents: ${accidentCount(accidentData,feature.properties.name).toLocaleString()}</h5><p>
+                        <h5>Population: ${populationExtract(populationData, feature.properties.name).toLocaleString()}</h5><p>
+                        <h5>Accident Population Density: ${Math.round(accidentCount(accidentData,feature.properties.name)/populationExtract(populationData, feature.properties.name)*100000)}/100,000 people<p>
+                        <h5>Accident Area Density: ${Math.round(accidentCount(accidentData,feature.properties.name)/areaExtract(populationData, feature.properties.name))}/sq.km`).openPopup(); // opens up the popup on mouseover
                     }, // closes mouseover
                     mouseout: function(event) {
                         layer = event.target;
@@ -237,6 +242,7 @@ d3.json(boroughUrl).then(function(data){
                     } // closes mouse out event
                 }); // closes on layer
             } // closes on each feature
+
 
         }).addTo(boroughLayer)
 
@@ -455,22 +461,68 @@ function accidentCount(accidentData, boroughName) {
 };
 
 
-function populationExtract(popData, boroughs){
+/////////////////////////////////
+////// EXTRACT POPULATION ///////
+/////////////////////////////////
+
+function populationExtract(popData, boroughName){
 
     let boroughPopulation = {};
 
     // extract population
     for (i=0; i<popData.length;i++){
 
-        let population = popData[i].Square_km;
+        let population = popData[i].Population;
+        let boroughName = popData[i].Borough_Name;
 
-        if(!boroughPopulation[population]){
-            boroughPopulation[population] = 
+        if(!boroughPopulation[boroughName]){
+            boroughPopulation[boroughName] = population;
             
-        }
-        
+        };
     };
+
+        let currentPopulation = ""
+
+        if (boroughName in boroughPopulation){
+
+            currentPopulation = boroughPopulation[boroughName];
+        };
+        
+    return currentPopulation;
 };
+
+/////////////////////////////////
+///////// EXTRACT AREA //////////
+/////////////////////////////////
+
+
+function areaExtract(popData, boroughName){
+
+    let boroughArea = {};
+
+    // extract population
+    for (i=0; i<popData.length;i++){
+
+        let area = popData[i].Square_km;
+        let boroughName = popData[i].Borough_Name;
+
+        if(!boroughArea[boroughName]){
+            boroughArea[boroughName] = area;
+            
+        };
+    };
+
+        let currentArea = ""
+
+        if (boroughName in boroughArea){
+
+            currentArea = boroughArea[boroughName];
+        };
+        
+    return currentArea;
+
+};
+
 
 
 
