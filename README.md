@@ -1,5 +1,4 @@
-# project3-group6
-Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey
+# Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey
 
 <h3>group members</h3><p>
 Angad Dhillon<p>
