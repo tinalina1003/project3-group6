@@ -191,52 +191,62 @@ let boroughUrl = 'http://127.0.0.1:5000/api/v1.0/boroughs'
 
 d3.json(boroughUrl).then(function(data){
 
-    // json data
-    let accidentUrl = 'http://127.0.0.1:5000/api/v1.0/accidents';
+    let populationUrl = 'http://127.0.0.1:5000/api/v1.0/population'
 
-    d3.json(accidentUrl).then(function(accidentData){
+    d3.json(populationUrl).then(function(populationData) {
 
-    L.geoJSON(data, {
-        // default style
-        style: function(feature){
-            return {
-                color: 'white', // white outline
-                fillColor: 'blue', // fill with orange
-                fillOpacity: 0.3,
-                weight: 1.5
-            }
-        },
-        onEachFeature: function(feature, layer) {
-            layer.on({
-                mouseover: function(event){
-                    layer = event.target;
-                    layer.setStyle({
-                        fillOpacity:0.5 // so on event trigger (mouseover), fill opacity to 0.9
-                    }); //closes the styling when mouse over
+        // json data
+        let accidentUrl = 'http://127.0.0.1:5000/api/v1.0/accidents';
 
-                    // change westminster if needed
-                    layer.bindPopup("<h2>" + changeWestminster(feature) + `</h2><hr> \
-                    <h5>Total Accidents: ${accidentCount(accidentData,feature.properties.name)}</h5>`).openPopup(); // opens up the popup on mouseover
-                }, // closes mouseover
-                mouseout: function(event) {
-                    layer = event.target;
-                    layer.setStyle({
-                        fillOpacity: 0.3
-                    }); // closes the style when mouse out
-                    layer.closePopup();
-                }, // closes second mouseover
-                click: function(event){
-                    myMap.fitBounds(event.target.getBounds())
-                    // on click might have to change other graphs... will have to think about this
-                } // closes mouse out event
-            }); // closes on layer
-        } // closes on each feature
 
-    }).addTo(boroughLayer)
+        d3.json(accidentUrl).then(function(accidentData){
 
-    });// closes the nested d3.json
+        L.geoJSON(data, {
+            // default style
+            style: function(feature){
+                return {
+                    color: 'white', // white outline
+                    fillColor: 'blue', // fill with orange
+                    fillOpacity: 0.3,
+                    weight: 1.5
+                }
+            },
+            onEachFeature: function(feature, layer) {
+                layer.on({
+                    mouseover: function(event){
+                        layer = event.target;
+                        layer.setStyle({
+                            fillOpacity:0.5 // so on event trigger (mouseover), fill opacity to 0.9
+                        }); //closes the styling when mouse over
+
+                        // change westminster if needed
+                        layer.bindPopup("<h2>" + changeWestminster(feature) + `</h2><hr> \
+                        <h5>Total Accidents: ${accidentCount(accidentData,feature.properties.name)}</h5><p>
+                        <h5>Population: ${populationExtract(populationData, feature.properties.name)}</h5>`).openPopup(); // opens up the popup on mouseover
+                    }, // closes mouseover
+                    mouseout: function(event) {
+                        layer = event.target;
+                        layer.setStyle({
+                            fillOpacity: 0.3
+                        }); // closes the style when mouse out
+                        layer.closePopup();
+                    }, // closes second mouseover
+                    click: function(event){
+                        myMap.fitBounds(event.target.getBounds())
+                        // on click might have to change other graphs... will have to think about this
+                    } // closes mouse out event
+                }); // closes on layer
+            } // closes on each feature
+
+        }).addTo(boroughLayer)
+
+        });// closes the nested d3.json
+    });
+
+
 });
 
+    
 
 //////////////////////////////////////////////
 //////////// CREATE STREET MAP ///////////////
@@ -445,6 +455,25 @@ function accidentCount(accidentData, boroughName) {
 };
 
 
+function populationExtract(popData, boroughs){
+
+    let boroughPopulation = {};
+
+    // extract population
+    for (i=0; i<popData.length;i++){
+
+        let population = popData[i].Square_km;
+
+        if(!boroughPopulation[population]){
+            boroughPopulation[population] = 
+            
+        }
+        
+    };
+};
+
+
+
 ///////////////////////////////////////////////////
 //// CHANGE WESTMINSTER TO CITY OF WESTMINSTER ////
 ///////////////////////////////////////////////////
@@ -481,6 +510,5 @@ function getMarkerColor(severity) {
         return 'white';
     }
 };
-
 
 
