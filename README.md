@@ -1,14 +1,44 @@
-# project3-group6
-Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey
+# Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey
 
-
-<h3>group members</h3><p>
+<h3>Group Members</h3><p>
 Angad Dhillon<p>
 Camille Velarde<p>
 Christina Leung<p>
 Gurpreet Doal<p>
 
--map
+<h1> Goal </h1>
+
+Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential tp contribute to the well being of community drove out team to choose this topic.
+
+
+<h1> Methodology </h1>
+
+![architecture](https://github.com/tinalina1003/project3-group6/assets/127992819/0f7bada7-d2b7-40c2-b71e-7a3c3c7a2bfb)
+
+Python (to clean and export data)
+MongoDB (to store our data)
+Flask (to create framework for API’s)
+JavaScript & Chart.js (to visualize data)
+HTML & CSS ( as basic skeleton of webpage)
+
+
+<h1> Data </h1>
+
+APIs Used: <p>
+London 2019 Accidents:
+https://api-portal.tfl.gov.uk/api-details#api=AccidentStats&operation=AccidentStats_Get
+
+London Boroughs:
+https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london?resource=9ba8c833-6370-4b11-abdc-314aa020d5e0
+
+Borough Population and Area:
+https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-borough
+
+
+<h1> Map </h1>
+
+![map](https://github.com/tinalina1003/project3-group6/assets/127992819/91c538df-ab19-4d37-849e-a5a55661c498)
+
 > 3 layers: street, topo, satellite
 >> topo added to see if topography might influence i.e.) slopes
 
@@ -23,3 +53,13 @@ keep in mind it could also be people who are passing by the boroughs that cause 
 however, still the highest accidents/sq.km in london with 220 accidents/sq.km
 
 bromley lowest accidents/sq.km
+
+
+
+<h1> London Accident Data by Borough</h1>
+
+![AccidentByBorough2](https://github.com/tinalina1003/project3-group6/assets/127992819/6cc6d422-6469-49ec-8525-7a9e737753cc)
+
+![AccidentByBorough1](https://github.com/tinalina1003/project3-group6/assets/127992819/fc84405f-924d-4454-95f8-1c483644a19e)
+
+
