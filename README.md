@@ -19,12 +19,9 @@ Borough Population and Area:
 https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-borough
 
 
-
-
-  
+<h1> Map </h1>
 ![map](https://github.com/tinalina1003/project3-group6/assets/127992819/91c538df-ab19-4d37-849e-a5a55661c498)
 
--map
 > 3 layers: street, topo, satellite
 >> topo added to see if topography might influence i.e.) slopes
 
@@ -39,3 +36,7 @@ keep in mind it could also be people who are passing by the boroughs that cause 
 however, still the highest accidents/sq.km in london with 220 accidents/sq.km
 
 bromley lowest accidents/sq.km
+
+
+
+<h1> London Accident Data by Borough</h1>
