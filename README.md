@@ -1,6 +1,6 @@
 # Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey
 
-<h3>group members</h3><p>
+<h3>Group Members</h3><p>
 Angad Dhillon<p>
 Camille Velarde<p>
 Christina Leung<p>
