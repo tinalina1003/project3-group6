@@ -12,7 +12,7 @@ Gurpreet Doal<p>
 
 <h1> Data </h1>
 
-APIs Used: <hr>
+<br>APIs Used:</br>
 London 2019 Accidents:
 https://api-portal.tfl.gov.uk/api-details#api=AccidentStats&operation=AccidentStats_Get
 
