@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>London Accident Data 2019</title>
+    <link rel="stylesheet" href="css/totalAccidents.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-bg"></div>
+        <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
+      </header>
+    <nav class="navigation">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./map.html">Map</a></li>
+            <li><a href="./total_accidents.html">Total Accidents</a></li>
+            <li><a href="./casualties.html">Casualties</a></li>
+        </ul>
+    </nav><br>
+    <div class="barContainer">
+        <div class="dropdownContainer"><label>Severity: </label>
+            <select id="severityDropdown" onchange="optionChange(this)"></select>
+            <label>Sort: </label>
+            <select id="sortingDropdown" onchange="sortingOptionChange(this)">
+                <option>A-Z</option>
+                <option>Ascending</option>
+                <option>Descending</option>
+            </select>
+        </div>
+    <!-- html element to render chart/graph -->
+        <div class="bar">
+            <canvas id="myChart"></canvas>
+        </div>  
+        <br>
+        <br>
+        <div class="radar">
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+
+    <!-- references js file -->
+    <!-- import d3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/main.js"></script>    
+    <!-- import chart.js to html -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+
+
+
+
+
+
+
+
+</html>
+
+
