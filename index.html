@@ -13,57 +13,24 @@
         <div class="header-bg"></div>
         <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
       </header>
-    <!-- import chart.js to html -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- import d3 -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    
-
-
-    <!-- navigation bar -->
-    <style>
-        
-        h1 {text-align: center;}
-        
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-    /* Change the link color to #111 (black) on hover */ */
-        li a:hover {
-            background-color: #111;
-        }
-    </style>
-    
-    <nav>
+    <nav class="navigation">
         <ul>
-            <li><a href="/">London Map</a></li>
-            <li><a href="/">View 1</a></li>
-            <li><a href="/">View 2</a></li>
-            <li><a href="/">View 3</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./map.html">Map</a></li>
+            <li><a href="./total_accidents.html">Total Accidents</a></li>
+            <li><a href="./casualties.html">Casualties</a></li>
         </ul>
     </nav><br>
-    <div>
-        <label>Severity: </label>
-        <select id="dropdown" onchange="optionChange(this)"></select>
-    
+    <div class="mainContainer">
+        <div class="dropdownContainer"><label>Severity: </label>
+            <select id="severityDropdown" onchange="optionChange(this)"></select>
+            <label>Sort: </label>
+            <select id="sortingDropdown" onchange="sortingOptionChange(this)">
+                <option>A-Z</option>
+                <option>Ascending</option>
+                <option>Descending</option>
+            </select>
+        </div>
     <!-- html element to render chart/graph -->
         <div class="bar">
             <canvas id="myChart"></canvas>
@@ -74,8 +41,13 @@
             <canvas id="radarChart"></canvas>
         </div>
     </div>
- <!-- references js file -->
-    <script src="js/main.js"></script>
+
+    <!-- references js file -->
+    <!-- import d3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/main.js"></script>    
+    <!-- import chart.js to html -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 

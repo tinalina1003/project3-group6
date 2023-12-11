@@ -1,15 +1,17 @@
-const url = 'https://api.tfl.gov.uk/AccidentStats/2019'
+const url = 'http://localhost:5000/api/v1.0/accidents'
 var accident_dataset = [];
 var severities = [];
 var borough_accident_dataset = [];
 var bar;
 var boroughLabels;
+var severityDropdownSelected = '-';
+var sortingDropdownSelected = 'A-Z';
 
 d3.json(url).then(loaddata);
 
 function loaddata(data) {
     createBarChart(data);
-    createRadarChart(data);
+    // createRadarChart(data);
 }
 
 function createBarChart(data) {
@@ -27,7 +29,7 @@ function createBarChart(data) {
         borough_accident_dataset.push({
             "borough": boroughLabels[boroughIndex],
             "accidents": accidents
-        }
+          }
         );
 
         for (let severityIndex = 0; severityIndex < severities.length; severityIndex++) {
@@ -38,10 +40,11 @@ function createBarChart(data) {
                 "accidents": accidents
             });
         }
-    }
+      }
 
-    console.log(accident_dataset)
-    console.log(borough_accident_dataset)
+
+    console.log('accident_dataset', accident_dataset)
+    console.log('borough_accident_dataset', borough_accident_dataset)
 
     chrt = document.getElementById("myChart");
 
@@ -111,93 +114,95 @@ function createBarChart(data) {
         }
     });
 
-    var dropdown = document.getElementById("dropdown");
-    console.log(dropdown)
+    var severityDropdown = document.getElementById("severityDropdown");
+    console.log(severityDropdown)
     var optionElm = document.createElement("option")
     optionElm.text = '-';
-    dropdown.appendChild(optionElm) 
+    severityDropdown.appendChild(optionElm) 
 
     for (let severityIndex = 0; severityIndex < severities.length; severityIndex++) {
         var optionElm = document.createElement("option")
         optionElm.text = severities[severityIndex];
-        dropdown.appendChild(optionElm) 
+        severityDropdown.appendChild(optionElm) 
     }
 }
 
-function createRadarChart(dataset) {
-    var casualtiesDataset = createCasualtiesDataset(dataset);
-    console.log(casualtiesDataset);
-    
-    var casualtiesLabels = [...new Set(casualtiesDataset.map(t => t.mode))];
-    var finalizedCasualtiesData = [];
-
-    for (let casualtiesIndex = 0; casualtiesIndex < casualtiesLabels.length; casualtiesIndex++) {
-        let casualties = casualtiesDataset.filter(t => t.mode == casualtiesLabels[casualtiesIndex]).length
-        finalizedCasualtiesData.push(casualties);
-    }
-
-    var radarChartElm = document.getElementById("radarChart");
-
-    const data = {
-        labels: casualtiesLabels,
-        datasets: [{
-          label: 'Casualties',
-          data: finalizedCasualtiesData,
-          fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)'
-        }]
-      };
-
-      var radarChart = new Chart(radarChartElm, {
-        type: 'radar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'London Accident Casualties 2019',
-                    font: {
-                      size: 15,
-                      weight: 'bold'
-                    },
-                    elements: {
-                      line: {
-                        borderWidth: 3
-                      }
-                    }
-                  }
-                }
-              },
-            });
-          }
-
-function createCasualtiesDataset(dataset) {
-    var casualties = [];
-    dataset.forEach(t => casualties = casualties.concat(t.casualties))
-    return casualties;
+function optionChange(severityDropdown) {
+    console.log('option changed called', severityDropdown.value);
+    this.severityDropdownSelected = severityDropdown.value;
+    handleUpdatedDropdownFilters();
 }
 
-function optionChange(dropdown) {
-    console.log('option changed called', dropdown.value);
+function sortingOptionChange(sortingDropdown) {
+  console.log('sorting option changed called', sortingDropdown.value);
+  this.sortingDropdownSelected = sortingDropdown.value;
+  handleUpdatedDropdownFilters();
+}
 
-    let data = [];
-    if (dropdown.value === '-') {
-        data = borough_accident_dataset.map(t => t.accidents);
+
+function handleUpdatedDropdownFilters() {
+  let sortedLabels = [];
+  let sortedDataset = [];
+  let data = [];
+
+  
+  if (sortingDropdownSelected === 'A-Z') {
+    sortedLabels = boroughLabels.sort();
+    if (severityDropdownSelected === "-") {
+      sortedLabels.forEach(label => {
+        sortedDataset.push(borough_accident_dataset.find(t => t.borough === label));
+      });
     } else {
-        let severity_dataset = accident_dataset.filter(t => t.severity === dropdown.value);
-        data = severity_dataset.map(t => t.accidents);
+      sortedLabels.forEach(label => {
+        sortedDataset.push(accident_dataset.find(t => t.borough === label && t.severity === severityDropdownSelected));
+      });
     }
+  } else if (sortingDropdown.value === 'Ascending') {
+    if (severityDropdownSelected === "-") {
+      sortedDataset = borough_accident_dataset.sort(compareByAccidents);
+    } else {
+      let severity_dataset = accident_dataset.filter(t => t.severity === severityDropdownSelected);
+      sortedDataset = severity_dataset.sort(compareByAccidents);
+    }
+  } else {
+    if (severityDropdownSelected === "-") {
+      sortedDataset = borough_accident_dataset.sort(compareByAccidentsDesc);
+    } else {
+      let severity_dataset = accident_dataset.filter(t => t.severity === severityDropdownSelected);
+      sortedDataset = severity_dataset.sort(compareByAccidentsDesc);
+    }
+  }
 
-    bar.data.datasets.forEach((dataset) => {
-        dataset.data = data;
-    });
+  // finalizing data and labels
+  console.log('sortedDataset', sortedDataset);
+  data = sortedDataset.map(t => t.accidents);
+  sortedLabels = sortedDataset.map(t => t.borough);
 
+  // update the bar graph
+  bar.data.datasets.forEach((dataset) => {
+      dataset.data = data;
+  });
 
-    bar.update();
+  bar.data.labels = sortedLabels;
+  bar.update();
+}
 
+function compareByAccidents(a, b) {
+  if (a.accidents < b.accidents) {
+    return -1;
+  }
+  if (a.accidents > b.accidents) {
+    return 1;
+  }
+  return 0;
+}
+
+function compareByAccidentsDesc(a, b) {
+  if (a.accidents > b.accidents) {
+    return -1;
+  }
+  if (a.accidents < b.accidents) {
+    return 1;
+  }
+  return 0;
 }

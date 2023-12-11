@@ -23,6 +23,7 @@ label {
     position: relative;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+    text-align: center;
 }
 
 .header h1 {
@@ -41,3 +42,38 @@ label {
     z-index: -999;
 }
 
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dropdownContainer {
+    width: 100%;
+    margin-left: 45px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navigation li {
+    float: left;
+}
+
+.navigation li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navigation li a:hover {
+    background-color: #111;
+}
