@@ -79,6 +79,8 @@ function createBarChart(data) {
         type: 'bar',
         data: data,
         options: {
+          responsive: true,
+          maintainAspectRatio: false,
           plugins: {
               title: {
                   display: true,

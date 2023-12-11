@@ -86,8 +86,9 @@ label {
 .gridContainer {
     display: grid;
     width: 100vw;
-    height: 80vh;
+    max-height: 80vh;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 2rem;
 }
 
