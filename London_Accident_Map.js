@@ -108,9 +108,10 @@ d3.json(accidentUrl).then(function(data){
         let newMarker = L.marker([location.lat, location.lon], {
             icon: icons[severity]
            })
-           .bindPopup("<h3>Location: </h3>" + location.location + "<h3>Date: </h3>" + 
-           data[i].date + "<h3>Borough: </h3>" + location.borough + 
-           "<h3> Casuality: </h3>" + mode)
+           .bindPopup(`<h4 style = "display: inline;">Location: </h4>${location.location}<p>
+           <h4 style = "display: inline;">Date: </h4> ${data[i].date}<p>
+           <h4 style = "display: inline;">Borough: </h4> ${location.borough}<p>
+           <h4 style = "display: inline;"> Method of Transportation: </h4> ${mode}`)
 
         // add markers to layers
         if (mode == 'Car'){
@@ -198,10 +199,6 @@ d3.json(boroughUrl).then(function(data){
         // json data
         let accidentUrl = 'http://127.0.0.1:5000/api/v1.0/accidents';
 
-        console.log(populationData)
-        console.log(data)
-
-
         d3.json(accidentUrl).then(function(accidentData){
 
         L.geoJSON(data, {
@@ -269,6 +266,10 @@ let sat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
 });
 
+let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
 
 /////////////////////////////////////
 ///////// CREATE BASE LAYERS ////////
@@ -277,6 +278,7 @@ let sat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
 
 let baseMaps = {
     Street: street,
+    Topography: topo,
     Satellite: sat
 }
 
@@ -291,14 +293,14 @@ let overlayMaps = {
     'Boroughs': boroughLayer,
     'Accidents': accidentLayer,
     'Heat Map': heatmapLayer,
-    'Slight': severityLayers.Slight,
-    'Serous': severityLayers.Serious,
-    'Fatal': severityLayers.Fatal,
+    'Slight Accidents': severityLayers.Slight,
+    'Serious Accidents': severityLayers.Serious,
+    'Fatal Accidents': severityLayers.Fatal,
     'Car': modeLayers.Car,
     Pedestrian: modeLayers.Pedestrian,
     Bicycle: modeLayers.Bicycle,
     'Bus or Coach': modeLayers.BusOrCoach,
-    'Other Modes': modeLayers.OtherModes
+    'Other Vehicles': modeLayers.OtherModes
 
 }
 
@@ -310,12 +312,12 @@ let myMap = L.map(document.getElementById("map-id"), {
     center: [51.495, -0.14],
     zoom: 10,
     layers: [street, 
-            severityLayers.Fatal]
+            boroughLayer]
   });
 
 
 L.control.layers(baseMaps, overlayMaps,{
-    collapsed:true // so the lil menu bar at the top does not collapse into smaller menu
+    collapsed:false // so the lil menu bar at the top does not collapse into smaller menu
 }).addTo(myMap)
 
 
