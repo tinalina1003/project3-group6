@@ -8,7 +8,7 @@ Gurpreet Doal<p>
 
 <h1> Goal </h1>
 
-Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential tp contribute to the well being of community drove out team to choose this topic.
+Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential to contribute to the well being of community drove out team to choose this topic.
 
 
 <h1> Methodology </h1>
@@ -23,6 +23,9 @@ HTML & CSS ( as basic skeleton of webpage)
 
 
 <h1> Data </h1>
+
+<h3>Data and Delivery:</h3>
+The data component used in project, include London accident statistics obtained from an API, London borough boundaries in JSON format, and a CSV file with borough population data converted to JSON. A MongoDB database is used to store and manage the data after cleaning it in Pandas. The project is powered by a  three Python Flask API for each individual dataset, providing a robust backend for handling data operations. The technology stack includes HTML, CSS, and JavaScript for creating a dynamic and interactive front end.
 
 APIs Used: <p>
 London 2019 Accidents:
