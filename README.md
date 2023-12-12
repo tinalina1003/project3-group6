@@ -46,18 +46,18 @@ https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-bor
 The map has 3 main layers: Street, Topography, and Satellite. Topography layer was included as a way to determine if topography would influence accidents, i.e.) slopes.
 
 <h3>Overlay maps: </h3>
-<ul>1 boroughs map that shows the boundaries of the boroughs with popup information for each borough; the information includes Total Area (sq.km), Total Population, Total Accidents, Accidents per 100,000 people, and Accidents per Sq.km.</ul>
-<ul>1 heat map that measures total accidents in all of london</ul>
-<ul>1 accidents layer that shows all the accidents incurred in 2019</ul>
-<ul>3 severity layers, one for each severity: slight, serious, and fatal. This map includes all accidents in each category</ul>
-<ul>5 modes of transportation layers: Car, Pedestrian, Bus or Coach, Bicycle, and Other Modes of transportation. Other modes of transportation include PoweredTwoWheeler(motor scooters/mopeds), Taxis, Private Hire, Goods Vehicles (semis), and all other types of vehicles</ul>
+<li>1 boroughs map that shows the boundaries of the boroughs with popup information for each borough; the information includes Total Area (sq.km), Total Population, Total Accidents, Accidents per 100,000 people, and Accidents per Sq.km.</li>
+<li>1 heat map that measures total accidents in all of london</li>
+<li>1 accidents layer that shows all the accidents incurred in 2019</li>
+<li>3 severity layers, one for each severity: slight, serious, and fatal. This map includes all accidents in each category</li>
+<li>5 modes of transportation layers: Car, Pedestrian, Bus or Coach, Bicycle, and Other Modes of transportation. Other modes of transportation include PoweredTwoWheeler(motor scooters/mopeds), Taxis, Private Hire, Goods Vehicles (semis), and all other types of vehicles</li>
 
 <h3>Summary: </h3>
 
-<ul>Bromley has the lowest accidents/sq.km of 9. This is due to Bromley having a large area of 150 sq.km</ul>
-<ul>City of London has the highest with 220 accidents/sq.km. City of London has a small area of 2.9 sq.km</ul>
-<ul>City of Westminster has highest accidents per 100,000 people with 1173</ul>
-<ul>Harrow has lowest accidents per 100,000 people with 330</ul>
+<li>Bromley has the lowest accidents/sq.km of 9. This is due to Bromley having a large area of 150 sq.km</li>
+<li>City of London has the highest with 220 accidents/sq.km. City of London has a small area of 2.9 sq.km</li>
+<li>City of Westminster has highest accidents per 100,000 people with 1173</li>
+<li>Harrow has lowest accidents per 100,000 people with 330</li>
 
 Note: Not all accidents are produced by the residents in the borough; accidents can occur in the borough by people going between other boroughs
 
@@ -77,16 +77,16 @@ Sort by highest total accidents in descending order:
 When we filter by severity, the top 5 boroughs remain the same, except when we filter by “Fatal” accidents
 
 <h3>Top 5 Boroughs With Highest Fatalities in 2019: </h3>
-<li>Merton – 16 accidents</li>
-<li>Cordon and Wandsworth – 14 accidents</li>
-<li>Bromley, Brent, Hounslow – 12 accidents</li>
-<li>Endfield and Hillingdon - 10 fatal accidents each</li>
+<ol>Merton – 16 accidents</ol>
+<ol>Cordon and Wandsworth – 14 accidents</ol>
+<ol>Bromley, Brent, Hounslow – 12 accidents</ol>
+<ol>Endfield and Hillingdon - 10 fatal accidents each</ol>
 
 <h3>Top 5 Boroughs With Highest Total Accidents in 2019</h3>
-<li>The City of Westminster – 3032 accidents</li>
-<li>Lambeth – 2382 accidents</li>
-<li>Tower Hamlets – 2232 accidents</li>
-<li>Southwark – 2186 accidents</li>
-<li>Ealing – 1966 accidents</li>
+<ol>The City of Westminster – 3032 accidents</ol>
+<ol>Lambeth – 2382 accidents</ol>
+<ol>Tower Hamlets – 2232 accidents</ol>
+<ol>Southwark – 2186 accidents</ol>
+<ol>Ealing – 1966 accidents</ol>
 
 
