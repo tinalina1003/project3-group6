@@ -76,18 +76,17 @@ Sort by highest total accidents in descending order:
 <h3>Findings: </h3>
 When we filter by severity, the top 5 boroughs remain the same, except when we filter by “Fatal” accidents
 
-<h3>Top 5 Boroughs With Highest Fatalities: </h3>
+<h3>Top 5 Boroughs With Highest Fatalities in 2019: </h3>
 <li>Merton – 16 accidents</li>
 <li>Cordon and Wandsworth – 14 accidents</li>
 <li>Bromley, Brent, Hounslow – 12 accidents</li>
 <li>Endfield and Hillingdon - 10 fatal accidents each</li>
 
-By sorting in descending order, we were able to make out the top 5 borough with the highest number of accidents.
-Top 5 Boroughs with the most accidents in 2019
-The City of Westminster – 3032 accidents
-Lambeth – 2382 accidents
-Tower Hamlets – 2232 accidents
-Southwark – 2186 accidents
-Ealing – 1966 accidents
+<h3>Top 5 Boroughs With Highest Total Accidents in 2019</h3>
+<li>The City of Westminster – 3032 accidents</li>
+<li>Lambeth – 2382 accidents</li>
+<li>Tower Hamlets – 2232 accidents</li>
+<li>Southwark – 2186 accidents</li>
+<li>Ealing – 1966 accidents</li>
 
 
