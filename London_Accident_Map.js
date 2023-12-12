@@ -304,8 +304,9 @@ let overlayMaps = {
     'Other Vehicles': modeLayers.OtherModes
 
 }
-
-// actual map
+////////////////////////////////////////
+//////////// ACTUAL MAP ////////////////
+////////////////////////////////////////
 
 
 // Create a map object.
@@ -321,8 +322,9 @@ L.control.layers(baseMaps, overlayMaps,{
     collapsed:false // so the lil menu bar at the top does not collapse into smaller menu
 }).addTo(myMap)
 
-
-////////// LEGEND ///////////////////////
+/////////////////////////////////////////
+////////// LEGEND FUNCTIONS /////////////
+/////////////////////////////////////////
 
 var markerColor = {
     'Slight': 'green',
@@ -423,10 +425,11 @@ severityLegend.addTo(myMap);
 
 
 
-///////////////////////////////////
-//////////// BOROUGHS /////////////
-///////////////////////////////////
+//////////////////////////////////////
+/////// BOROUGH DATA EXTRACT /////////
+//////////////////////////////////////
 
+// extract total accidents per borough
 function accidentCount(accidentData, boroughName) {
     // Create an object to store borough counts
     let boroughCounts = {};
@@ -435,6 +438,7 @@ function accidentCount(accidentData, boroughName) {
     for (let i = 0; i < accidentData.length; i++) {
         let borough = accidentData[i].borough;
 
+        // this is needed since one API is kingston and the other is kingston upon thames
         borough = borough === 'Kingston' ? 'Kingston upon Thames' : borough;
 
         // If the borough is not in the counts object, initialize it to 1
@@ -468,6 +472,7 @@ function accidentCount(accidentData, boroughName) {
 ////// EXTRACT POPULATION ///////
 /////////////////////////////////
 
+// extract population per borough
 function populationExtract(popData, boroughName){
 
     let boroughPopulation = {};
@@ -498,7 +503,7 @@ function populationExtract(popData, boroughName){
 ///////// EXTRACT AREA //////////
 /////////////////////////////////
 
-
+// extract area of each borough
 function areaExtract(popData, boroughName){
 
     let boroughArea = {};
@@ -517,6 +522,7 @@ function areaExtract(popData, boroughName){
 
         let currentArea = ""
 
+        // if current borough is = to a borough in the dict, return it's value
         if (boroughName in boroughArea){
 
             currentArea = boroughArea[boroughName];
@@ -533,6 +539,8 @@ function areaExtract(popData, boroughName){
 //// CHANGE WESTMINSTER TO CITY OF WESTMINSTER ////
 ///////////////////////////////////////////////////
 
+// this is needed because the API names for the boroughs are different
+// one is westminster and the other is city of westminster.. 
 function changeWestminster(features){
 
     // change westminster to city of westminster
