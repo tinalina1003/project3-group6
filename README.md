@@ -8,7 +8,7 @@ Gurpreet Doal<p>
 
 <h1>Files: </h1>
 
-- **Database Folder:** Jupyter Notebook that created and uploaded the raw data into our database in MongoDB
+<li>**Database Folder:** Jupyter Notebook that created and uploaded the raw data into our database in MongoDB</li>
 <li>**Resources Folder:**Raw Json Files</li>
 <li>**Map Folder:**All included Map files. Map/js/London_Accident_Map.js is the main js file that creates the map. Map.html is the file that opens the map created in the aforementioned file. Map/css includes the css files that has the styles. Map/img includes all the icons used for markers</li>
 
