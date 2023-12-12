@@ -40,7 +40,7 @@ https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-bor
 
 <h1> Map </h1>
 
-![map](https://github.com/tinalina1003/project3-group6/assets/127992819/91c538df-ab19-4d37-849e-a5a55661c498)
+![map](https://github.com/tinalina1003/project3-group6/assets/127992819/6ac06b07-2205-4f7f-979c-d1d0db1fc7a3)
 
 <h3>Main Layers: </h3>
 The map has 3 main layers: Street, Topography, and Satellite. Topography layer was included as a way to determine if topography would influence accidents, i.e.) slopes.
