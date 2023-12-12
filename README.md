@@ -66,9 +66,11 @@ Note: Not all accidents are produced by the residents in the borough; accidents 
 An interactive bar graph was created using chart.js. The bar graph, by default, displays the total number of accidents in London for the year 2019 by borough. The data can be further filtered by the severity of the accident and can be sorted alphabetically or by ascending or descending values as shown below.
 
 Sort by Severity:
+
 ![AccidentByBorough2](https://github.com/tinalina1003/project3-group6/assets/127992819/6cc6d422-6469-49ec-8525-7a9e737753cc)
 
 Sort by Descending:
+
 ![AccidentByBorough1](https://github.com/tinalina1003/project3-group6/assets/127992819/fc84405f-924d-4454-95f8-1c483644a19e)
 
 <h3>Findings: </h3>
