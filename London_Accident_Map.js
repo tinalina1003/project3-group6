@@ -221,6 +221,7 @@ d3.json(boroughUrl).then(function(data){
 
                         // change westminster if needed
                         layer.bindPopup("<h2>" + changeWestminster(feature) + `</h2><hr> \
+                        <h5> Area: ${areaExtract(populationData, feature.properties.name)} sq.km</h5><p>
                         <h5>Total Accidents: ${accidentCount(accidentData,feature.properties.name).toLocaleString()}</h5><p>
                         <h5>Population: ${populationExtract(populationData, feature.properties.name).toLocaleString()}</h5><p>
                         <h5>Accident Population Density: ${Math.round(accidentCount(accidentData,feature.properties.name)/populationExtract(populationData, feature.properties.name)*100000)}/100,000 people<p>
