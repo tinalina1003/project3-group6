@@ -1,0 +1,65 @@
+/* Styling the dropdown menu */
+#monthDropdown {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 3px solid #8b3e3e;
+    border-radius: 10px;
+    font-size: 16px;
+    align-self: start;
+}
+
+/* Flex container for pie chart and accident info */
+.chart-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 3rem; /* Space between items */
+}
+
+/* Styling the information div */
+#accidentInfo {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the pie chart container */
+#vehicleTypePieChart {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #8b3e3e;
+    border-radius: 10px;
+    flex-grow: 50; /* Allows the pie chart to grow larger than the info container */
+    max-width: 50%; /* Increase maximum width */
+    margin-right: 40px; /* Maintain space between the pie chart and the table */
+    min-height: 600px;
+}
+
+/* Styling for total accidents */
+#totalAccidents {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    font-size: 20px;
+    border: 3px solid #8b3e3e;
+    border-radius: 10px;
+}
+
+/* Styling for info container */
+.info-container {
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
