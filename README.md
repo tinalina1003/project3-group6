@@ -24,7 +24,8 @@ HTML & CSS ( as basic skeleton of webpage)
 
 <h1> Data </h1>
 
-Data and Delivery:The data component used in project, include London accident statistics obtained from an API, London borough boundaries in JSON format, and a CSV file with borough population data converted to JSON. A MongoDB database is used to store and manage the data after cleaning it in Pandas. The project is powered by a  three Python Flask API for each individual dataset, providing a robust backend for handling data operations. The technology stack includes HTML, CSS, and JavaScript for creating a dynamic and interactive front end.
+<h3>Data and Delivery:</h3>
+The data component used in project, include London accident statistics obtained from an API, London borough boundaries in JSON format, and a CSV file with borough population data converted to JSON. A MongoDB database is used to store and manage the data after cleaning it in Pandas. The project is powered by a  three Python Flask API for each individual dataset, providing a robust backend for handling data operations. The technology stack includes HTML, CSS, and JavaScript for creating a dynamic and interactive front end.
 
 APIs Used: <p>
 London 2019 Accidents:
