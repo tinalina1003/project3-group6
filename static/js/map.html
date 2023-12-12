@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Accidents in London, GB in 2019</title>
-  <link rel="stylesheet" href="css/main.css"/>
+
 <!-- D3 library -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -22,7 +22,7 @@ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""></script>
 
 <!-- Our CSS -->
-<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <!-- Marker cluster JavaScript code -->
 <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
@@ -33,32 +33,21 @@ crossorigin=""></script>
 
 
 <!-- Icons -->
-<script src="static/js/leaflet.extra-markers.min.js"></script>
+<script src="leaflet.extra-markers.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
+  <link rel="stylesheet" href="../css/leaflet.extra-markers.min.css">
 
 
 <style>
 
 #map-id {
-  width: 100%;
   height: 100%;
-  padding: 10px;
-  margin: 10px;
 
 }
   .popupCustom .leaflet-popup-tip,
   .popupCustom .leaflet-popup-content-wrapper {
     background: #e0e0e0;
     color: #234c5e;
-  }
-
-  .container {
-    width: 100%;
-    height: 700px;
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
   }
 </style>
 
@@ -71,21 +60,11 @@ crossorigin=""></script>
 <script type="text/javascript" src="London_Accident_Map.js"></script>
 
 <!-- Leaflet heatmap plugin-->
-<script type="text/javascript" src="static/js/leaflet-heat.js"></script>
-<header class="header">
-  <div class="header-bg"></div>
-  <h1>Exploring London’s Vehicular Accident Rate in 2019: A Visual Journey</h1>
-</header>
-<nav class="navigation">
-  <ul>
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./map.html">Map</a></li>
-      <li><a href="./total_accidents.html">Total Accidents</a></li>
-      <li><a href="./casualties.html">Casualties</a></li>
-  </ul>
-</nav><br>
+<script type="text/javascript" src="leaflet-heat.js"></script>
+
 <div class="container">
   <div id="map-id"></div>
+  
 </div>
 
 

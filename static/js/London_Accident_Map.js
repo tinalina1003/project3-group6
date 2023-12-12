@@ -108,9 +108,10 @@ d3.json(accidentUrl).then(function(data){
         let newMarker = L.marker([location.lat, location.lon], {
             icon: icons[severity]
            })
-           .bindPopup("<h3>Location: </h3>" + location.location + "<h3>Date: </h3>" + 
-           data[i].date + "<h3>Borough: </h3>" + location.borough + 
-           "<h3> Casuality: </h3>" + mode)
+           .bindPopup(`<h4 style = "display: inline;">Location: </h4>${location.location}<p>
+           <h4 style = "display: inline;">Date: </h4> ${data[i].date}<p>
+           <h4 style = "display: inline;">Borough: </h4> ${location.borough}<p>
+           <h4 style = "display: inline;"> Method of Transportation: </h4> ${mode}`)
 
         // add markers to layers
         if (mode == 'Car'){
@@ -198,10 +199,6 @@ d3.json(boroughUrl).then(function(data){
         // json data
         let accidentUrl = 'http://127.0.0.1:5000/api/v1.0/accidents';
 
-        console.log(populationData)
-        console.log(data)
-
-
         d3.json(accidentUrl).then(function(accidentData){
 
         L.geoJSON(data, {
@@ -224,6 +221,7 @@ d3.json(boroughUrl).then(function(data){
 
                         // change westminster if needed
                         layer.bindPopup("<h2>" + changeWestminster(feature) + `</h2><hr> \
+                        <h5> Area: ${areaExtract(populationData, feature.properties.name)} sq.km</h5><p>
                         <h5>Total Accidents: ${accidentCount(accidentData,feature.properties.name).toLocaleString()}</h5><p>
                         <h5>Population: ${populationExtract(populationData, feature.properties.name).toLocaleString()}</h5><p>
                         <h5>Accident Population Density: ${Math.round(accidentCount(accidentData,feature.properties.name)/populationExtract(populationData, feature.properties.name)*100000)}/100,000 people<p>
@@ -269,6 +267,10 @@ let sat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         subdomains:['mt0','mt1','mt2','mt3']
 });
 
+let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
 
 /////////////////////////////////////
 ///////// CREATE BASE LAYERS ////////
@@ -277,6 +279,7 @@ let sat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
 
 let baseMaps = {
     Street: street,
+    Topography: topo,
     Satellite: sat
 }
 
@@ -291,18 +294,19 @@ let overlayMaps = {
     'Boroughs': boroughLayer,
     'Accidents': accidentLayer,
     'Heat Map': heatmapLayer,
-    'Slight': severityLayers.Slight,
-    'Serous': severityLayers.Serious,
-    'Fatal': severityLayers.Fatal,
+    'Slight Accidents': severityLayers.Slight,
+    'Serious Accidents': severityLayers.Serious,
+    'Fatal Accidents': severityLayers.Fatal,
     'Car': modeLayers.Car,
     Pedestrian: modeLayers.Pedestrian,
     Bicycle: modeLayers.Bicycle,
     'Bus or Coach': modeLayers.BusOrCoach,
-    'Other Modes': modeLayers.OtherModes
+    'Other Vehicles': modeLayers.OtherModes
 
 }
-
-// actual map
+////////////////////////////////////////
+//////////// ACTUAL MAP ////////////////
+////////////////////////////////////////
 
 
 // Create a map object.
@@ -310,16 +314,17 @@ let myMap = L.map(document.getElementById("map-id"), {
     center: [51.495, -0.14],
     zoom: 10,
     layers: [street, 
-            severityLayers.Fatal]
+            boroughLayer]
   });
 
 
 L.control.layers(baseMaps, overlayMaps,{
-    collapsed:true // so the lil menu bar at the top does not collapse into smaller menu
+    collapsed:false // so the lil menu bar at the top does not collapse into smaller menu
 }).addTo(myMap)
 
-
-////////// LEGEND ///////////////////////
+/////////////////////////////////////////
+////////// LEGEND FUNCTIONS /////////////
+/////////////////////////////////////////
 
 var markerColor = {
     'Slight': 'green',
@@ -420,10 +425,11 @@ severityLegend.addTo(myMap);
 
 
 
-///////////////////////////////////
-//////////// BOROUGHS /////////////
-///////////////////////////////////
+//////////////////////////////////////
+/////// BOROUGH DATA EXTRACT /////////
+//////////////////////////////////////
 
+// extract total accidents per borough
 function accidentCount(accidentData, boroughName) {
     // Create an object to store borough counts
     let boroughCounts = {};
@@ -432,6 +438,7 @@ function accidentCount(accidentData, boroughName) {
     for (let i = 0; i < accidentData.length; i++) {
         let borough = accidentData[i].borough;
 
+        // this is needed since one API is kingston and the other is kingston upon thames
         borough = borough === 'Kingston' ? 'Kingston upon Thames' : borough;
 
         // If the borough is not in the counts object, initialize it to 1
@@ -465,6 +472,7 @@ function accidentCount(accidentData, boroughName) {
 ////// EXTRACT POPULATION ///////
 /////////////////////////////////
 
+// extract population per borough
 function populationExtract(popData, boroughName){
 
     let boroughPopulation = {};
@@ -495,7 +503,7 @@ function populationExtract(popData, boroughName){
 ///////// EXTRACT AREA //////////
 /////////////////////////////////
 
-
+// extract area of each borough
 function areaExtract(popData, boroughName){
 
     let boroughArea = {};
@@ -514,6 +522,7 @@ function areaExtract(popData, boroughName){
 
         let currentArea = ""
 
+        // if current borough is = to a borough in the dict, return it's value
         if (boroughName in boroughArea){
 
             currentArea = boroughArea[boroughName];
@@ -530,6 +539,8 @@ function areaExtract(popData, boroughName){
 //// CHANGE WESTMINSTER TO CITY OF WESTMINSTER ////
 ///////////////////////////////////////////////////
 
+// this is needed because the API names for the boroughs are different
+// one is westminster and the other is city of westminster.. 
 function changeWestminster(features){
 
     // change westminster to city of westminster
