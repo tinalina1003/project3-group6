@@ -105,9 +105,10 @@ The Highest Accident in Descending Order:
 1. June (4,544)
 
 The Fewest Accidents in Ascending Order: 
-1. January (3,790)
-1. February (3,782)
+
 1. April (3,760)
+1. February (3,782)
+1. January (3,790)
 
 Mode of Transportation:
 
