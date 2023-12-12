@@ -111,9 +111,9 @@ The Fewest Accidents in Ascending Order:
 
 Mode of Transportation:
 
-1. Cars - 16,450 nearly 50% of all incidents
-1. Pedestrians (10,472 accidents)
-1. Powered two-wheelers (10,370)
-1. Cyclists (9,088)
-1. Buses (1,702)
-1. Goods vehicles (890)
+1. Cars - 16,450
+1. Pedestrians - 10,472
+1. Powered two-wheelers - 10,370
+1. Cyclists - 9,088
+1. Buses - 1,702
+1. Goods vehicles - 890
