@@ -52,7 +52,7 @@ The map has 3 main layers: Street, Topography, and Satellite. Topography layer w
 <ul>3 severity layers, one for each severity: slight, serious, and fatal. This map includes all accidents in each category</ul>
 <ul>5 modes of transportation layers: Car, Pedestrian, Bus or Coach, Bicycle, and Other Modes of transportation. Other modes of transportation include PoweredTwoWheeler(motor scooters/mopeds), Taxis, Private Hire, Goods Vehicles (semis), and all other types of vehicles</ul>
 
-<h3Summary: </h3>
+<h3>Summary: </h3>
 
 <ul>Bromley has the lowest accidents/sq.km of 9. This is due to Bromley having a large area of 150 sq.km</ul>
 <ul>City of London has the highest with 220 accidents/sq.km. City of London has a small area of 2.9 sq.km</ul>
