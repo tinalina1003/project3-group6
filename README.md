@@ -78,7 +78,7 @@ When we filter by severity, the top 5 boroughs remain the same, except when we f
 
 <h3>Top 5 Boroughs With Highest Fatalities in 2019: </h3>
 1. Merton – 16 accidents
-1. Cordon and Wandsworth – 14 accidents
+2. Cordon and Wandsworth – 14 accidents
 1. Bromley, Brent, Hounslow – 12 accidents
 1. Endfield and Hillingdon - 10 fatal accidents each
 
