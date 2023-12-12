@@ -42,10 +42,15 @@ https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-bor
 
 ![map](https://github.com/tinalina1003/project3-group6/assets/127992819/91c538df-ab19-4d37-849e-a5a55661c498)
 
-> 3 layers: street, topo, satellite
->> topo added to see if topography might influence i.e.) slopes
+<h3>Main Layers: </h3>
+The map has 3 main layers: Street, Topography, and Satellite. Topography layer was included as a way to determine if topography would influence accidents, i.e.) slopes.
 
-> 1 heat map, 3 overlay layers consisting of severity of accidents, and 5 overlay layers consisting of modes of transportation
+<h3>Overlay maps: </h3>
+<ul>1 boroughs map that shows the boundaries of the boroughs with popup information for each borough; the information includes Total Area (sq.km), Total Population, Total Accidents, Accidents per 100,000 people, and Accidents per Sq.km.</ul>
+<ul>1 heat map that measures total accidents in all of london</ul>
+<ul>1 accidents layer that shows all the accidents incurred in 2019</ul>
+<ul>3 severity layers, one for each severity: slight, serious, and fatal. This map includes all accidents in each category</ul>
+<ul>5 modes of transportation layers: Car, Pedestrian, Bus or Coach, Bicycle, and Other Modes of transportation. Other modes of transportation include PoweredTwoWheeler(motor scooters/mopeds), Taxis, Private Hire, Goods Vehicles (semis), and all other types of vehicles</ul>
 
 summary:
 city of london highest accident per population and area ratio because low number of residents
