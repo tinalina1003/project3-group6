@@ -91,4 +91,21 @@ When we filter by severity, the top 5 boroughs remain the same, except when we f
 1. Southwark – 2186 accidents
 1. Ealing – 1966 accidents
 
+<h1>London Accident Data by Casualty Type</h1>
+
+
+![casualty1](https://github.com/tinalina1003/project3-group6/assets/127992819/d2de7958-41ab-4374-9266-4c19c0f93979)
+
+<h3>Findings: </h3>
+
+The Highest Accident in Descending Order: 
+
+1. November (4,694)
+1. October (4,594)
+1. June (4,544)
+
+The Fewest Accidents in Ascending Order: 
+1. January (3,790)
+1. February (3,782)
+1. April (3,760)
 
