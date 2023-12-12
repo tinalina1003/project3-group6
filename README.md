@@ -11,6 +11,9 @@ Gurpreet Doal<p>
 - **Database Folder:** Jupyter Notebook that created and uploaded the raw data into our database in MongoDB
 - **Resources Folder:** Raw Json Files
 - **Map Folder:** All included Map files. Map/js/London_Accident_Map.js is the main js file that creates the map. Map.html is the file that opens the map created in the aforementioned file. Map/css includes the css files that has the styles. Map/img includes all the icons used for markers
+- **Casualties.html:** Original Pie Chart html that shows casualties by months of 2019
+- **total_accidents.html:** Original Bar Chart hmtl that shows accidents by boroughs in 2019
+- **css Folder:** css files intended to style our htmls
 
 <h1> Goal </h1>
 
