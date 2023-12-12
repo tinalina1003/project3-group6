@@ -63,8 +63,26 @@ Note: Not all accidents are produced by the residents in the borough; accidents 
 
 <h1> London Accident Data by Borough</h1>
 
+An interactive bar graph was created using chart.js. This bar graph displays the total number of accidents in London for the year 2019 by borough. The data can be further filtered by the severity of the accident and can be sorted alphabetically or by ascending or descending values.
+
 ![AccidentByBorough2](https://github.com/tinalina1003/project3-group6/assets/127992819/6cc6d422-6469-49ec-8525-7a9e737753cc)
 
 ![AccidentByBorough1](https://github.com/tinalina1003/project3-group6/assets/127992819/fc84405f-924d-4454-95f8-1c483644a19e)
 
+<h3>Findings: </h3>
+
+By sorting in descending order, we were able to make out the top 5 borough with the highest number of accidents.
+Top 5 Boroughs with the most accidents in 2019
+The City of Westminster – 3032 accidents
+Lambeth – 2382 accidents
+Tower Hamlets – 2232 accidents
+Southwark – 2186 accidents
+Ealing – 1966 accidents
+
+When we filter by severity, the top 5 boroughs remain the same, except when we filter by “Fatal” accidents
+For Fatal accidents, top 5 boroughs change:
+Merton had the most fatal accidents – 16 accidents
+Cordon and Wandsworth – 14 accidents
+Bromley, Brent, Hounslow – 12 accidents
+Endfield and Hillingdon tied for fourth with a total of 10 fatal accidents in 2019
 
