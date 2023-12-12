@@ -6,6 +6,12 @@ Camille Velarde<p>
 Christina Leung<p>
 Gurpreet Doal<p>
 
+<h1>Files: </h1>
+
+- **Database Folder:** Jupyter Notebook that created and uploaded the raw data into our database in MongoDB
+- **Resources Folder:** Raw Json Files
+- **Map Folder:** All included Map files. Map/js/London_Accident_Map.js is the main js file that creates the map. Map.html is the file that opens the map created in the aforementioned file. Map/css includes the css files that has the styles. Map/img includes all the icons used for markers
+
 <h1> Goal </h1>
 
 Vehicular accidents are usual and impactful aspect of urban life, affecting communities on daily basis. The significance of road safety and potential to contribute to the well being of community drove out team to choose this topic.
