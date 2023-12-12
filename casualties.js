@@ -64,10 +64,10 @@ function processAccidentData(data){
              monthDropdown.appendChild(option);
     });
 
-     // Add event listener to the dropdown
-     monthDropdown.addEventListener('change', function() {
-        const selectedMonth = this.value;
-        displayAccidentData(selectedMonth);
+    // Add event listener to the dropdown
+    monthDropdown.addEventListener('change', function() {
+    const selectedMonth = this.value;
+    displayAccidentData(selectedMonth);
     });
    
 function formatMonthYear(monthYear) {
@@ -87,11 +87,13 @@ function displayAccidentData(monthKey) {
 
     // Process and display vehicle types and counts
     const vehicleTypes = vehicleTypeCounts[monthKey];
-    let vehicleTypesText = 'No data';
+    let vehicleTypesTable =  '<table><tr><th>Vehicle Type</th><th>Number of Vehicles</th></tr>';
+
     if (vehicleTypes) {
-        vehicleTypesText = 'Vehicle Types: no of vehicles <br>' + Object.entries(vehicleTypes)
-            .map(([type, count]) => `${type}:  ${count}`)
-            .join('<br>');
+        for (const [type, count] of Object.entries(vehicleTypes)) {
+            vehicleTypesTable += `<tr><td>${type}</td><td>${count}</td></tr>`;
+        }
+        vehicleTypesTable += '</table>';
 
 
     
@@ -118,8 +120,9 @@ function displayAccidentData(monthKey) {
 
       // Display the information
       const infoDiv = document.getElementById('accidentInfo');
-      infoDiv.innerHTML = vehicleTypesText;
+      infoDiv.innerHTML = vehicleTypesTable ;
   }
+
 
  
 

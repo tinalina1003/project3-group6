@@ -12,24 +12,25 @@
 /* Flex container for pie chart and accident info */
 .chart-container {
     display: flex;
-    justify-content: space-between; /* Space out the children */
+    justify-content: space-between; 
     align-items: flex-start;
+<<<<<<< HEAD
+    gap: 50px; /* Space between items */
+ 
+=======
     gap: 3rem; /* Space between items */
    
+>>>>>>> 36c2dbe898339ef0f59636a0f8f531bcc95b49c8
     
 }
 
 /* Styling the information div */
 #accidentInfo {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
     background-color: #fff;
-    padding: 2px;
-    margin-bottom: 20px;
-    border-radius: 2px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    width: 60%; /* Adjust width as needed */
-    max-width: 1000px; /* Maximum width */
-    border: 3px solid #8b3e3e;
-    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling the pie chart container */
@@ -40,12 +41,16 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 3px solid #8b3e3e;
     border-radius: 10px;
+    flex-grow: 50; /* Allows the pie chart to grow larger than the info container */
+    max-width: 50%; /* Increase maximum width */
+    margin-right: 40px; /* Maintain space between the pie chart and the table */
+    min-height: 600px;
 }
 
 /* Styling for total accidents */
 #totalAccidents {
     background-color: #fff;
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     margin-bottom: 20px;
@@ -56,6 +61,44 @@
 
 /* Styling for info container */
 .info-container {
+<<<<<<< HEAD
+    width: 40%; /* Adjusted width */
+    max-width: 400px; /* Maximum width */
+    flex: 1; /* Adjusts the flexibility */
+    order: 2; /* Set order in flex container */
+}
+
+/* Basic styling for tables */
+#accidentInfo table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    
+}
+
+#accidentInfo th, #accidentInfo td {
+   
+    padding: 8px;
+    text-align: center;
+    border: 3px solid #8b3e3e;
+    border-radius: 10px;
+}
+
+#accidentInfo th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#accidentInfo td {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Ensure table is not hidden */
+#accidentInfo table {
+    display: table;
+=======
+>>>>>>> 36c2dbe898339ef0f59636a0f8f531bcc95b49c8
 }
 
 
